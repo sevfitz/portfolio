@@ -13,3 +13,4 @@
 
 For later reference:
 LinkedIn: https://www.linkedin.com/in/sevfitzgerald/
+flickr: https://www.flickr.com/photos/sevfitzgerald
