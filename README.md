@@ -10,3 +10,6 @@
 7. As a visitor, I want the viewport properly sized, so that content fits all the size I have available.
 8. As a visitor, I want the primary nav to be responsive, so that I can get around using any device.
 9. As a developer, I want my CSS organized (think SMACSS) so that I can find my stylings swiftly.
+
+For later reference:
+LinkedIn: https://www.linkedin.com/in/sevfitzgerald/

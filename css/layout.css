@@ -1,0 +1,12 @@
+/* Mobile Styles for screen width < 640px */
+
+
+
+
+/* Desktop Styles for screen with >= 640px */
+@media only screen and (min-width: 640px) {
+    .nav {
+        display: inline;
+    }
+}
+
