@@ -26,7 +26,7 @@
         "code": 59648,
         "name": "bird"
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 2,
       "iconIdx": 0
     },
@@ -53,7 +53,7 @@
         "prevSize": 32,
         "code": 59659
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 1,
       "iconIdx": 11
     },
@@ -81,7 +81,7 @@
         "prevSize": 32,
         "code": 59679
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 1,
       "iconIdx": 31
     },
@@ -108,7 +108,7 @@
         "prevSize": 32,
         "code": 59801
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 1,
       "iconIdx": 153
     },
@@ -139,9 +139,38 @@
         "prevSize": 32,
         "code": 59812
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 1,
       "iconIdx": 164
+    },
+    {
+      "icon": {
+        "paths": [
+          "M64 192h896v192h-896zM64 448h896v192h-896zM64 704h896v192h-896z"
+        ],
+        "tags": [
+          "menu",
+          "list",
+          "options",
+          "lines",
+          "hamburger"
+        ],
+        "defaultCode": 59837,
+        "grid": 16,
+        "attrs": []
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "menu, list3",
+        "name": "menu",
+        "order": 7,
+        "id": 190,
+        "prevSize": 32,
+        "code": 59837
+      },
+      "setIdx": 2,
+      "setId": 1,
+      "iconIdx": 189
     },
     {
       "icon": {
@@ -165,12 +194,15 @@
         "prevSize": 32,
         "code": 59841
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 1,
       "iconIdx": 193
     }
   ],
   "height": 1024,
+  "metadata": {
+    "name": "icomoon"
+  },
   "preferences": {
     "showGlyphs": true,
     "showQuickUse": true,
