@@ -19,10 +19,6 @@
         bottom: 0;
     }
 
-    li {
-        list-style: none;
-    }
-
     .menu, .tab, .icon-menu {
         color: purple;
         font-size: 1.8rem;
@@ -43,21 +39,6 @@
         margin: 0 0 0 60vw;
     }
 
-    article {
-        width: 50vw;
-        height: auto;
-    }
-
-    article img {
-        width: 50vw;
-        height: auto;
-    }
-
-    footer {
-        position: absolute;
-        bottom: 0;
-        margin: 2vh 20vw;
-    }
 }
 
 /* Desktop Styles for screen with >= 640px */
@@ -81,10 +62,6 @@
         justify-content: space-around;
     }
 
-    li {
-        list-style: none;
-    }
-
     .menu, .tab {
         color: purple;
         font-size: 1.8rem;
@@ -92,22 +69,7 @@
 
     main {
         height: 60vh;
-    }
+    }  
 
-    footer {
-        position: absolute;
-        bottom: 0;
-        margin: 2vh 20vw;
-    }
-
-    article {
-        width: 50vw;
-        height: auto;
-    }
-
-    article img {
-        width: 50vw;
-        height: auto;
-    }
 }
 

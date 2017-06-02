@@ -22,7 +22,22 @@ a:visited {
     opacity: 85%;
 }
 
+li {
+    list-style: none;
+}
 
+footer {
+    position: absolute;
+    bottom: 0;
+    margin: 2vh 20vw;
+}
 
+article {
+    width: 50vw;
+    height: auto;
+}
 
-
+article img {
+    width: 50vw;
+    height: auto;
+}
