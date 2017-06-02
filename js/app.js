@@ -9,6 +9,11 @@ siteView.navHandler = function() {
         $('#' + clickedTab).show();
     });
     $('nav .tab:first').click();
+
+    // Toggle click the mobile menu
+    $('.icon-menu').click(function () {
+    $('nav ul').toggleClass('open');
+    });
 };
 
 $(function() {

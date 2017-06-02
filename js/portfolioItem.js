@@ -29,4 +29,3 @@ portfolioItems.forEach(function(item) {
 });
 
 
-
