@@ -8,21 +8,41 @@
     <link rel="stylesheet" href="css/base.css" type="text/css">
     <link rel="stylesheet" href="css/layout.css" type="text/css">
     <link rel="stylesheet" href="css/module.css" type="text/css">
+    <link rel="stylesheet" href="icomoon/style.css" type="text/css">
 </head>
 <body>
-    <div class="menu" class="about-me"></div>
-    <div class="menu" class="flickr"></div>
-    <div class="menu" class="about-site"></div>
-    <div class="menu" class="linkedin"></div>
-    <div class="menu" class="portfolio"></div>
+    <main>
+        <div class="menu" class="about-me"><a href=""><img src="images/saira_sm-emptybr.png"></a></div>
+        <div class="menu" class="flickr"><a href=""><span class="icon-leaf"></span></a></div>
+        <div class="menu" class="about-site"><a href=""><span class="icon-cloud"></span></a></div>
+        <div class="menu" class="linkedin"><a href=""><span class="icon-bug"></span></a></div>
+        <div class="menu" class="portfolio"><a href=""><span class="icon-book"></span></a></div>
+        <section id="about-me" class="tab-content">
+            <p>Some info about me, TBD.</p>
+        </section>
+        <section id="about-site" class="tab-content">
+            <p>Some info about this site, TBD</p>
+        </section>
+        <section id="portfolio" class="tab-content">
+            <article class="template">
+                <h2>Project Name</h2>
+                <a href=""><img src=""></a>
+                <p>Developed by Dev</p>
+                <p>Last Updated: </p>
+                description
+            </article>
+        </section>
+
+    </main>
     <nav>
         <ul>
-            <li class="menu" class="about-me"><a href="">About Me</a></li>
+            <li class="menu" class="tab" data-content="about-me"><a href="">About Me</a></li>
             <li class="menu" class="flickr"><a href="">flickr</a></li>
-            <li class="menu" class="about-site"><a href="">About this Site</a></li>
+            <li class="menu" class="tab" data-content="about-site"><a href="">About this Site</a></li>
             <li class="menu" class="linkedin"><a href="">linkedIn</a></li>
-            <li class="menu" class="portfolio"><a href="">Portfolio</a></li>
+            <li class="menu" class="tab" data-content="portfolio"><a href="">Portfolio</a></li>
         </ul>
+        <div class="menu" class="toggle-menu"><a href=""><span class="icon-menu"></span></a></div>
     </nav>
     <footer>&copy; 2017 Stephanie Fitzgerald | Code Fellows PDX Code 301 Portfolio Project</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

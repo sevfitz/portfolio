@@ -15,12 +15,18 @@ function portfolioItem ( portfolioItemObj ) {
 }
 
 portfolioItem.prototype.toHtml = function() {
-	var $newItem = $('item.template').clone();
+	var $newItem = $('article.template').clone();
 	$newItem.removeClass('template');
 	$newItem.attr('data-id', this.id);
+	$newItem.attr('data-dev', this.dev);
+	$newItem.find('').html();
+
 	return $newItem;
 };
 
 portfolioItems.forEach(function(item) {
 	$('#portfolio-items').append(item.toHtml());
 });
+
+
+

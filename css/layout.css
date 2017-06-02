@@ -1,12 +1,44 @@
 /* Mobile Styles for screen width < 640px */
 
+nav {
+    height: 10vh;
+    display: flex;
+    flex-direction: flex-end;
+}
 
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
+nav div {
+    padding: 0 2vw 2vw 0;
+    float: right;
+    bottom: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.menu {
+    font-size: 1.8rem;
+}
+
+main {
+    height: 60vh;
+}
 
 /* Desktop Styles for screen with >= 640px */
 @media only screen and (min-width: 640px) {
-    .nav {
-        display: inline;
+    nav {
+        display: block;
     }
+
+    footer {
+        float: bottom;
+    }
+
 }
 
