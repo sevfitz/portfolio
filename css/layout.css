@@ -43,19 +43,25 @@
         margin: 0 0 0 60vw;
     }
 
+    article {
+        width: 50vw;
+        height: auto;
+    }
+
+    article img {
+        width: 50vw;
+        height: auto;
+    }
+
     footer {
         position: absolute;
         bottom: 0;
-        margin: 0 auto;
+        margin: 2vh 20vw;
     }
 }
 
 /* Desktop Styles for screen with >= 640px */
 @media only screen and (min-width: 640px) {
-
-    footer {
-        float: bottom;
-    }
 
     .icon-menu {
         display: none;
@@ -86,6 +92,22 @@
 
     main {
         height: 60vh;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        margin: 2vh 20vw;
+    }
+
+    article {
+        width: 50vw;
+        height: auto;
+    }
+
+    article img {
+        width: 50vw;
+        height: auto;
     }
 }
 

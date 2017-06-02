@@ -2,7 +2,7 @@
 
 var portfolioItems = [];
 
-function portfolioItem ( portfolioItemObj ) {
+function PortfolioItem ( portfolioItemObj ) {
 	this.project = portfolioItemObj.project;
 	this.id = portfolioItemObj.id;
 	this.dev = portfolioItemObj.dev;
@@ -14,18 +14,26 @@ function portfolioItem ( portfolioItemObj ) {
 	this.description = portfolioItemObj.description;
 }
 
-portfolioItem.prototype.toHtml = function() {
+PortfolioItem.prototype.toHtml = function() {
 	var $newItem = $('article.template').clone();
 	$newItem.removeClass('template');
 	$newItem.attr('data-id', this.id);
 	$newItem.attr('data-dev', this.dev);
-	$newItem.find('').html();
-
+	$newItem.find('h2').html(this.project);
+	$newItem.find('a').attr('href', this.ghPagesURL);
+	$newItem.find('img').attr('src', this.img);
+	$newItem.find('p:first').html('Developed by ' + this.dev);
+	$newItem.find('p:last').html('Last Updated: ' + this.lastUpdated);
+	$newItem.find('div').html(this.description);
+	$newItem.append('<hr>');
 	return $newItem;
 };
 
-portfolioItems.forEach(function(item) {
-	$('#portfolio-items').append(item.toHtml());
+portfolioItemData.forEach(function (item) {
+	portfolioItems.push(new PortfolioItem(item));
 });
 
+portfolioItems.forEach(function(item) {
+	$('#portfolio').append(item.toHtml());
+});
 
