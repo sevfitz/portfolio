@@ -15,18 +15,10 @@ function PortfolioItem ( portfolioItemObj ) {
 }
 
 PortfolioItem.prototype.toHtml = function() {
-	var $newItem = $('article.template').clone();
-	$newItem.removeClass('template');
-	$newItem.attr('data-id', this.id);
-	$newItem.attr('data-dev', this.dev);
-	$newItem.find('h2').html(this.project);
-	$newItem.find('a').attr('href', this.ghPagesURL);
-	$newItem.find('img').attr('src', this.img);
-	$newItem.find('p:first').html('Developed by ' + this.dev);
-	$newItem.find('p:last').html('Last Updated: ' + this.lastUpdated);
-	$newItem.find('div').html(this.description);
-	$newItem.append('<hr>');
-	return $newItem;
+	var templateFiller = Handlebars.compile($('#template').html());
+	var filledTemplate = templateFiller(this);
+
+	return filledTemplate;
 };
 
 portfolioItemData.forEach(function (item) {

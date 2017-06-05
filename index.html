@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="css/layout.css" type="text/css">
     <link rel="stylesheet" href="css/module.css" type="text/css">
     <link rel="stylesheet" href="icomoon/style.css" type="text/css">
+
+    <script id="template" type="text/x-handlebars-template">
+        <article data-id="{{id}}" data-dev="{{dev}}">
+            <a href="{{ghPagesURL}}"><img src="{{img}}"></a>
+            <h2>{{project}}</h2>
+            <p>Developed by {{dev}}</p>
+            <p>Last Updated: {{lastUpdated}}</p>
+            <div>{{{description}}}</div>
+        </article>
+    </script>
+
 </head>
 <body>
     <main>
@@ -24,28 +35,22 @@
             <p>Some info about this site, TBD</p>
         </section>
         <section id="portfolio" class="tab-content">
-            <article class="template" data-id="id" data-dev="dev">
-                <h2>Project Name</h2>
-                <a href=""><img src=""></a>
-                <p>Developed by Dev</p>
-                <p>Last Updated: </p>
-                <div>Description</div>
-            </article>
         </section>
 
     </main>
     <nav>
         <ul>
             <li class="tab" data-content="about-me">About Me</li>
-            <li class="menu" class="flickr"><a href="">flickr</a></li>
+            <li class="menu" class="flickr"><a href="https://www.flickr.com/photos/sevfitzgerald">flickr</a></li>
             <li class="tab" data-content="about-site">About this Site</li>
-            <li class="menu" class="linkedin"><a href="">linkedIn</a></li>
+            <li class="menu" class="linkedin"><a href="https://www.linkedin.com/in/sevfitzgerald">linkedIn</a></li>
             <li class="tab" data-content="portfolio">Portfolio</li>
         </ul>
         <span class="icon-menu"></span>
     </nav>
     <footer>&copy; 2017 Stephanie Fitzgerald | Code Fellows PDX Code 301 Portfolio Project</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
     <script src="js/portfolioData.js"></script>
     <script src="js/portfolioItem.js"></script>
     <script src="js/app.js"></script>

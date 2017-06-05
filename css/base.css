@@ -1,16 +1,21 @@
+
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    color: darkgrey;
-    background-color: seashell;
+    color: purple;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: .8rem;
+    background-image: url("/Users/fitzgerald/Documents/CodeFellows/301/labs/portfolio/images/tree-vector-illustration.jpg");
+    background-size: 1920px 1920px;
+    background-position: -50vw -100vh;
+    background-repeat: no-repeat;
 }
 
 a {
     text-decoration: none;
-    color: brown;
+    color: darkgrey;
 }
 
 a:hover, a:focus {
@@ -22,7 +27,25 @@ a:visited {
     opacity: 85%;
 }
 
+li {
+    list-style: none;
+}
 
+footer {
+    position: absolute;
+    bottom: 0;
+    margin: 2vh 25%;
+    padding: 1vh 0;
+    border: solid 1px transparent;
+    border-top-color: palegoldenrod;
+}
 
+article {
+    width: 100vw;
+    height: auto;
+}
 
-
+article img {
+    width: 50vw;
+    height: auto;
+}
