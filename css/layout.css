@@ -36,6 +36,28 @@
         width: 100vw;
     }
 
+    #portfolio {
+        width: 95vw;
+        height: 58vh;
+        float: right;
+        margin: -33vh 0 0 0;
+        padding: 1vh 1vw;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+
+    #portfolio img {
+        width: 90vw;
+        padding: 2vh 0 0 0;
+    }
+
+    #portfolio p {
+        width: 90vw;
+    }
+
+    #portfolio article {
+        width: 92vw;
+    }
 }
 
 /* Desktop Layout for screen with >= 640px */
@@ -64,5 +86,27 @@
         height: 83vh;
     }  
 
+    #portfolio {
+        width: 80vw;
+        height: 78vh;
+        float: right;
+        left: -55vw;
+        margin: -30vh 0 0 0;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+
+    #portfolio img {
+        width: 69vw;
+        padding: 2% 2% 0 2%;
+    }
+
+    #portfolio p {
+        width: 90vw;
+    }
+
+    #portfolio article {
+        width: 72vw;
+    }
 }
 
