@@ -4,7 +4,15 @@
     font-size: 2rem;
 }
 
+.menu, .tab, .icon-menu {
+    color: purple;
+    font-size: 1.8rem;
+}
+
 @media only screen and (min-width: 640px) {
-    
+        .menu, .tab {
+        color: purple;
+        font-size: 1.8rem;
+    }
 
 }
