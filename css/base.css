@@ -7,7 +7,7 @@ body {
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: .8rem;
-    background-image: url("/Users/fitzgerald/Documents/CodeFellows/301/labs/portfolio/images/tree-vector-illustration.jpg");
+    background-image: url("../images/tree-vector-illustration.jpg");
     background-size: 1920px 1920px;
     background-position: -50vw -100vh;
     background-repeat: no-repeat;
