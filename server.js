@@ -4,13 +4,13 @@ const express = require( 'express' );
 
 const app = express();
 
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT || 3000;
 
 app.use( express.static( './public' ));
 
-app.get( '/', function( request, response ) {
-    response.sendFile( './public/index.html' );
-});
+// app.get( '/', function( request, response ) {
+//     response.sendFile( './public/index.html' );
+// });
 
 // Pointing it to start from the root directory of portfolio since it can't find it
 app.get( '*', function( request, response ) {
