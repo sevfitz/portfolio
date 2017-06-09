@@ -4,7 +4,6 @@
     nav {
         width: 100vw;
         display: flex;
-        flex-direction: flex-end;
         margin: 2vh 2vw;
     }
 
@@ -32,8 +31,8 @@
     .open {
         display: flex;
         flex-direction: column;
-        margin: 0 0 0 35vw;
-        width: 100vw;
+        margin: 0 0 0 35%;
+        width: 100%;
     }
 
     #portfolio {
@@ -43,7 +42,6 @@
         margin: -33vh 0 0 0;
         padding: 1vh 1vw;
         overflow-y: scroll;
-        scroll-behavior: smooth;
     }
 
     #portfolio img {
@@ -82,8 +80,6 @@
         width: 100vw;
         height: 10vh;
         display: flex;
-        flex-direction: flex-end;
-        position: bottom;
     }
 
     nav ul {
@@ -102,9 +98,8 @@
         height: 78vh;
         float: right;
         left: -55vw;
-        margin: -30vh 0 0 0;
+        margin: -20vh 0 0 0;
         overflow-y: scroll;
-        scroll-behavior: smooth;
     }
 
     #portfolio img {
@@ -113,7 +108,7 @@
     }
 
     #portfolio p {
-        width: 90vw;
+        width: 100%;
     }
 
     #portfolio article {
