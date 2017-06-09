@@ -16,6 +16,9 @@ siteView.navHandler = function() {
     });
 };
 
-$(function() {
+siteView.initIndexPage = function() {
+    PortfolioItem.fetchAll.forEach(function (pfItem) { // eslint-disable-line
+        $('#portfolio').append(pfItem.toHtml())
+    });
     siteView.navHandler();
-});
+};
