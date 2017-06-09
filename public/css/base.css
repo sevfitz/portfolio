@@ -7,10 +7,7 @@ body {
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: .8rem;
-    background-image: url("../images/tree-vector-illustration.jpg");
-    background-size: 1920px 1920px;
-    background-position: -50vw -100vh;
-    background-repeat: no-repeat;
+    background: url(../images/resizedTree.jpg) bottom left -600px no-repeat;
 }
 
 a {
@@ -23,8 +20,7 @@ a:hover, a:focus {
 }
 
 a:visited {
-    color: purple;
-    opacity: 85%;
+    color: indigo;
 }
 
 li {
@@ -34,10 +30,11 @@ li {
 footer {
     position: absolute;
     bottom: 0;
-    margin: 2vh 25%;
+    margin: 2vh 0;
     padding: 1vh 0;
-    border: solid 1px transparent;
-    border-top-color: palegoldenrod;
+    width: 100%;
+    text-align: center;
+    border-top: solid 1px palegoldenrod;
 }
 
 article {
