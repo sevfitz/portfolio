@@ -1,16 +1,5 @@
 [
 	{
-		"project": "Salmon Cookies",
-		"id": "cookie-store",
-		"dev": "Stephanie Fitzgerald",
-		"repoURL": "https://github.com/sevfitz/cookie-stand",
-		"ghPagesURL": "https://sevfitz.github.io/cookie-stand",
-		"img": "images/cookie-stand.png",
-		"lastUpdated": "2017-05-18",
-		"isTeamProj": false,
-		"description": "<p>Marketing and sales data pages for fictitious cookie store franchise</p>"
-	},
-	{
 		"project": "Bus-Mall",
 		"id": "busmall",
 		"dev": "Stephanie Fitzgerald",
@@ -20,6 +9,17 @@
 		"lastUpdated": "2017-05-18",
 		"isTeamProj": false,
 		"description": "<p>Fictitious survey research site that displays data with Chart.js</p>"
+	},
+	{
+		"project": "Salmon Cookies",
+		"id": "cookie-store",
+		"dev": "Stephanie Fitzgerald",
+		"repoURL": "https://github.com/sevfitz/cookie-stand",
+		"ghPagesURL": "https://sevfitz.github.io/cookie-stand",
+		"img": "images/cookie-stand.png",
+		"lastUpdated": "2017-05-18",
+		"isTeamProj": false,
+		"description": "<p>Marketing and sales data pages for fictitious cookie store franchise</p>"
 	},
 	{
 		"project": "Turducken",

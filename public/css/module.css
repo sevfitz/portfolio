@@ -23,11 +23,7 @@
         font-size: 1.8rem;
     }
 
-    #portfolio article {
-        font-size: 1.25rem;
-        background-color: hsla(360, 100%, 100%, .75);
-        padding: 0 0 0 2vw;
-    }
+
 
     #error-wrapper {
         background-color: #101116;
