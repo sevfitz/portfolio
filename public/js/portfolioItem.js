@@ -1,8 +1,6 @@
 'use strict';
 
-var portfolioItems = [];
-
-function PortfolioItem ( portfolioItemObj ) {
+function PortfolioItem(portfolioItemObj) {
 	this.project = portfolioItemObj.project;
 	this.id = portfolioItemObj.id;
 	this.dev = portfolioItemObj.dev;
@@ -14,18 +12,65 @@ function PortfolioItem ( portfolioItemObj ) {
 	this.description = portfolioItemObj.description;
 }
 
-PortfolioItem.prototype.toHtml = function() {
-	var templateFiller = Handlebars.compile($('#template').html());
-	var filledTemplate = templateFiller(this);
+PortfolioItem.all = [];
 
-	return filledTemplate;
+PortfolioItem.prototype.toHtml = function () {
+	let template = Handlebars.compile($('#template').text());
+
+	this.daysAgo = parseInt((new Date() - new Date(this.lastUpdated)) / 60 / 60 / 24 / 1000);
+
+	return template(this);
 };
 
-portfolioItemData.forEach(function (item) {
-	portfolioItems.push(new PortfolioItem(item));
-});
+PortfolioItem.loadAll = function (pfItem) {
+	pfItem.sort(function (a, b) {
+		return (new Date(b.lastUpdated)) - (new Date(a.lastUpdated));
+	});
 
-portfolioItems.forEach(function(item) {
-	$('#portfolio').append(item.toHtml());
-});
+	pfItem.forEach(function (item) {
+		PortfolioItem.all.push(new PortfolioItem(item));
+	});
+}
 
+PortfolioItem.fetchAll = function () {
+	if (localStorage.portfolioItems) {
+		$.ajax({
+			type: 'HEAD',
+			url: './index.html',
+			success: PortfolioItem.eTagCheck,
+			error: PortfolioItem.runWhenFails
+		});
+	} else {
+		PortfolioItem.getPFData();
+	}
+};
+
+PortfolioItem.getPFData = function () {
+	$.ajax({
+		type: 'GET',
+		url: './data/portfolioData.json',
+		success: PortfolioItem.runWhenDone,
+		error: PortfolioItem.runWhenFails
+	});
+};
+
+PortfolioItem.runWhenDone = function (pfData, message, res) {
+	PortfolioItem.loadAll(pfData);
+	localStorage.setItem('portfolioItems', JSON.stringify(pfData));
+	localStorage.setItem('eTag', res.getResponseHeader('eTag'));
+	siteView.initIndexPage();
+};
+
+PortfolioItem.runWhenFails = function (err) {
+	console.log('error: ', err);
+};
+
+PortfolioItem.eTagCheck = function (data, message, res) {
+	let eTag = res.getResponseHeader('eTag');
+	let storedeTag = localStorage.getItem('eTag');
+	if (eTag === storedeTag) {
+		PortfolioItem.runWhenDone();
+	} else {
+		PortfolioItem.getPFData();
+	}
+};
