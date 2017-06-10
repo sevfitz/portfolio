@@ -22,3 +22,10 @@ siteView.initIndexPage = function() {
     });
     siteView.navHandler();
 };
+
+// When the window is resized, remove the open class if we are no longer viewing as mobile
+$(window).on('resize', function() {
+    if ( $('.icon-menu').css('display') === 'none' ) {
+        $('nav ul').removeClass('open');
+    }
+});

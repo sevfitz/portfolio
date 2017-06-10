@@ -1,15 +1,13 @@
 /* Mobile Layout for screen width < 640px */
-@media only screen and (max-width: 639px) {
-
     nav {
         width: 100vw;
         display: flex;
         margin: 2vh 2vw;
+        height: 10vh;
     }
 
     nav ul {
-        display: flex;
-        flex-direction: column;
+        width: 100%;
         display: none;
     }
 
@@ -36,13 +34,23 @@
     }
 
     #portfolio {
-        width: 95vw;
+        width: 90vw;
         height: 58vh;
         float: right;
         margin: -33vh 0 0 0;
         padding: 1vh 1vw;
         overflow-y: scroll;
     }
+
+
+@media only screen and (max-width: 639px) {
+
+
+
+
+
+
+
 
     #portfolio img {
         width: 90vw;
@@ -76,14 +84,8 @@
         display: none;
     }
 
-    nav {
-        width: 100vw;
-        height: 10vh;
-        display: flex;
-    }
-
     nav ul {
-        width: 100%;
+        display: block;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -93,13 +95,14 @@
         height: 83vh;
     }  
 
+
+
+
     #portfolio {
         width: 80vw;
         height: 78vh;
-        float: right;
         left: -55vw;
         margin: -20vh 0 0 0;
-        overflow-y: scroll;
     }
 
     #portfolio img {
