@@ -1,6 +1,6 @@
 'use strict';
 
-function PortfolioItem ( portfolioItemObj ) {
+function PortfolioItem(portfolioItemObj) {
 	this.project = portfolioItemObj.project;
 	this.id = portfolioItemObj.id;
 	this.dev = portfolioItemObj.dev;
@@ -14,25 +14,25 @@ function PortfolioItem ( portfolioItemObj ) {
 
 PortfolioItem.all = [];
 
-PortfolioItem.prototype.toHtml = function() {
+PortfolioItem.prototype.toHtml = function () {
 	let template = Handlebars.compile($('#template').text());
-	
+
 	this.daysAgo = parseInt((new Date() - new Date(this.lastUpdated)) / 60 / 60 / 24 / 1000);
 
 	return template(this);
 };
 
 PortfolioItem.loadAll = function (pfItem) {
-	pfItem.sort(function (a,b) {
+	pfItem.sort(function (a, b) {
 		return (new Date(b.lastUpdated)) - (new Date(a.lastUpdated));
 	});
 
 	pfItem.forEach(function (item) {
 		PortfolioItem.all.push(new PortfolioItem(item));
-	});	
+	});
 }
 
-PortfolioItem.fetchAll = function() {
+PortfolioItem.fetchAll = function () {
 	if (localStorage.portfolioItems) {
 		$.ajax({
 			type: 'HEAD',
@@ -49,14 +49,19 @@ PortfolioItem.fetchAll = function() {
 	}
 };
 
-PortfolioItem.runWhenDone = function(pfData, message, res) {
+PortfolioItem.runWhenDone = function (pfData, message, res) {
 	localStorage.setItem('portfolioItems', JSON.stringify(pfData));
-	PortfolioItem.loadAll(JSON.parse(localStorage.portfolioItem));
+	PortfolioItem.loadAll(JSON.parse(localStorage.portfolioItems));
 	localStorage.setItem('eTag', res.getResponseHeader('eTag'));
 	siteView.initIndexPage();
-}
+};
 
-PortfolioItem.eTagCheck = function(data, message, res) {
+
+PortfolioItem.runWhenFails = function (err) {
+	console.log('error: ', err);
+};
+
+PortfolioItem.eTagCheck = function (data, message, res) {
 	let eTag = res.getResponseHeader('eTag');
 	let storedeTag = localStorage.getItem('eTag');
 	if (eTag === storedeTag) {
@@ -70,4 +75,4 @@ PortfolioItem.eTagCheck = function(data, message, res) {
 			error: PortfolioItem.runWhenFails
 		});
 	}
-}
+};
