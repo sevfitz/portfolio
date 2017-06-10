@@ -37,25 +37,29 @@ PortfolioItem.fetchAll = function () {
 		$.ajax({
 			type: 'HEAD',
 			url: './index.html',
-			success: PortfolioItem.eTagCheck
-		});
-	} else {
-		$.ajax({
-			type: 'GET',
-			url: './data/portfolioData.json',
-			success: PortfolioItem.runWhenDone,
+			success: PortfolioItem.eTagCheck,
 			error: PortfolioItem.runWhenFails
 		});
+	} else {
+		PortfolioItem.getPFData();
 	}
 };
 
+PortfolioItem.getPFData = function () {
+	$.ajax({
+		type: 'GET',
+		url: './data/portfolioData.json',
+		success: PortfolioItem.runWhenDone,
+		error: PortfolioItem.runWhenFails
+	});
+};
+
 PortfolioItem.runWhenDone = function (pfData, message, res) {
+	PortfolioItem.loadAll(pfData);
 	localStorage.setItem('portfolioItems', JSON.stringify(pfData));
-	PortfolioItem.loadAll(JSON.parse(localStorage.portfolioItems));
 	localStorage.setItem('eTag', res.getResponseHeader('eTag'));
 	siteView.initIndexPage();
 };
-
 
 PortfolioItem.runWhenFails = function (err) {
 	console.log('error: ', err);
@@ -65,14 +69,8 @@ PortfolioItem.eTagCheck = function (data, message, res) {
 	let eTag = res.getResponseHeader('eTag');
 	let storedeTag = localStorage.getItem('eTag');
 	if (eTag === storedeTag) {
-		PortfolioItem.loadAll(JSON.parse(localStorage.portfolioItem));
-		siteView.initIndexPage();
+		PortfolioItem.runWhenDone();
 	} else {
-		$.ajax({
-			type: 'GET',
-			url: './data/portfolioData.json',
-			success: PortfolioItem.runWhenDone,
-			error: PortfolioItem.runWhenFails
-		});
+		PortfolioItem.getPFData();
 	}
 };
