@@ -1,5 +1,5 @@
 
-body {
+html, body {
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -11,8 +11,9 @@ body {
 }
 
 main {
-    height: 97vh;
+    height: 80vh;
     width: 100%;
+    overflow: hidden;
 }
 
 a {
@@ -38,7 +39,7 @@ footer {
     margin: 1vh 0 0 0;
     padding: 1vh 0;
     width: 100%;
-    height: 1vh;
+    height: 2vh;
     text-align: center;
     border-top: solid 1px palegoldenrod;
 }
