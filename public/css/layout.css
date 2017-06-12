@@ -1,73 +1,72 @@
-/* Mobile Layout for screen width < 640px */
-@media only screen and (max-width: 639px) {
-
-    nav {
-        width: 100vw;
-        display: flex;
-        margin: 2vh 2vw;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        display: none;
-    }
-
-    nav li {
-        width: 55vw;
-    }
-
-    main {
-        height: 60vh;
-    }
-
-    .icon-menu {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        padding: 0 2vw 10vh 0;
-    }
-
-    .open {
-        display: flex;
-        flex-direction: column;
-        margin: 0 0 0 35%;
-        width: 100%;
-    }
-
-    #portfolio {
-        width: 95vw;
-        height: 58vh;
-        float: right;
-        margin: -33vh 0 0 0;
-        padding: 1vh 1vw;
-        overflow-y: scroll;
-    }
-
-    #portfolio img {
-        width: 90vw;
-        padding: 2vh 0 0 0;
-    }
-
-    #portfolio p {
-        width: 90vw;
-    }
-
-    #portfolio article {
-        width: 92vw;
-    }
-
-    #error-wrapper {
-        width: 100vw;
-        height: 100vh;
-    }
-
-    #error-wrapper img {
-        max-height: 100vh;
-        max-width: 100vw;
-        margin: 0 auto;
-    }
+/* Mobile/Default Layout *************************** */
+nav {
+    width: 90%;
+    display: flex;
+    margin: 2% 2%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
 }
+
+nav ul {
+    width: 100%;
+    display: none;
+}
+
+nav li {
+    width: 30vw;
+}
+
+.icon-menu {
+    position: absolute;
+    right: 5px;
+    bottom: 40px;
+    /*padding: 0 1vw 5vh 0;*/
+}
+
+.open {
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 40%;
+    width: 30vw;
+    background-color: hsla(360, 100%, 100%, .95);
+}
+
+section {
+    width: 70vw;
+    height: 50vh;
+    float: right;
+    padding: 2%;
+    overflow-y: scroll;
+}
+
+#portfolio {
+    position: absolute;
+    top: 0;
+    margin: 5vh;
+    height: 70vh;
+
+}
+
+#portfolio img {
+    width: 96%;
+}
+
+#error-wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+#error-wrapper img {
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+
 
 /* Desktop Layout for screen with >= 640px */
 @media only screen and (min-width: 640px) {
@@ -76,54 +75,22 @@
         display: none;
     }
 
-    nav {
-        width: 100vw;
-        height: 10vh;
-        display: flex;
-    }
-
     nav ul {
-        width: 100%;
+        display: block;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
 
-    main {
+    /*main {
         height: 83vh;
-    }  
+    }  */
 
-    #portfolio {
+    /*#portfolio {
         width: 80vw;
         height: 78vh;
-        float: right;
         left: -55vw;
         margin: -20vh 0 0 0;
-        overflow-y: scroll;
-    }
-
-    #portfolio img {
-        width: 69vw;
-        padding: 2% 2% 0 2%;
-    }
-
-    #portfolio p {
-        width: 100%;
-    }
-
-    #portfolio article {
-        width: 72vw;
-    }
-
-    #error-wrapper {
-        width: 100vw;
-        height: 100vh;
-    }
-
-    #error-wrapper img {
-        max-height: 100vh;
-        max-width: 100vw;
-        margin: 0 auto;
-    }
+    }*/
 }
 
