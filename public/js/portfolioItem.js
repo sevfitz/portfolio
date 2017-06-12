@@ -25,15 +25,11 @@ var app = app || {};  //eslint-disable-line
 		return template(this);
 	};
 
-	PortfolioItem.loadAll = function (pfItem) {
-		pfItem.sort(function (a, b) {
-			return (new Date(b.lastUpdated)) - (new Date(a.lastUpdated));  //eslint-disable-line
-		});
+	PortfolioItem.loadAll = pfItem => {
+		pfItem.sort( (a, b) => (new Date(b.lastUpdated)) - (new Date(a.lastUpdated)));  //eslint-disable-line
 
-		pfItem.forEach(function (item) {
-			PortfolioItem.all.push(new PortfolioItem(item));
-		});
-	}
+		PortfolioItem.all = pfItem.map(pfItem => new PortfolioItem(pfItem));
+		};
 
 	PortfolioItem.fetchAll = function () {
 		if (localStorage.portfolioItems) {
