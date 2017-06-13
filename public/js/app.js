@@ -17,7 +17,7 @@ siteView.navHandler = function() {
 };
 
 siteView.initIndexPage = function() {
-    PortfolioItem.all.forEach(function (pfItem) { // eslint-disable-line
+    app.PortfolioItem.all.forEach(function (pfItem) { // eslint-disable-line
         $('#portfolio').append(pfItem.toHtml())
     });
     siteView.navHandler();
