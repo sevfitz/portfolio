@@ -20,9 +20,8 @@
         </article>
     </script>
     <script id="stats-template" type="text/x-handlebars-template">
-        <h3>Silly Stats</h3>
-        <p>Devs involved in these projects: {{dev}}</p>
-        <p>Number of words in description of projects: {{desc}}</p>
+        <p>Dev(s): {{name}}</p>
+        <p>Number of words used here to describe projects by dev(s): {{desc}}</p>
     </script>
 
 
@@ -44,7 +43,10 @@
         </section>
         <section id="portfolio" class="tab-content">
         </section>
-        <aside id="stats"></aside>
+        <aside>
+            <h3>Silly Stats</h3>
+            <div id="stats"></div>
+        </aside>
     </main>
     <nav>
         <ul>

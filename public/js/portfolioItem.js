@@ -25,43 +25,33 @@ var app = app || {};  //eslint-disable-line
 		return template(this);
 	};
 
-	// Find a way to use reduce... make an array of devs/ teams involved in these projects
+	// Find a way to use reduce... make an array of devs/teams involved in these projects
 	PortfolioItem.allDevs = function () {
-		// return PortfolioItem.all.map(item => item.dev).reduce((devArray, dev) => {
-		// 	!devArray.includes(dev) ? devArray.push(dev) : devArray
-		// 	console.log('devarray', devArray);
-		// 	return devArray;
-		// }, []);
-		console.log('alldevs', PortfolioItem.all.map(item => item.dev));
+		return PortfolioItem.all.map(item => item.dev)
+		.reduce((devArray, dev) => {
+			!devArray.includes(dev) ? devArray.push(dev) : devArray
+			return devArray;
+		}, []);
 	};
 
     // ...then use that array for something
-    // PortfolioItem.numProjs = function () {
-	// 		return PortfolioItem.allDevs().map(dev => {
-	// 			let devObj = {
-	// 				name: dev
-	// 				// desc: PortfolioItem.all.filter(devObj => devObj.dev === dev).map(description => description.length).reduce((total, value) => total + value.split(' ').length )
-	// 			};
-	// 			console.log('devObj', devObj);
-	// 			return devObj;
-	// 		})
-	// 	};
+    PortfolioItem.numProjs = function () {
+			return PortfolioItem.allDevs().map(dev => {
+				let devObj = {
+					name: dev,
+					desc: PortfolioItem.all.filter(pfObj => pfObj.dev === dev)
+					.map(item => item.description.split(' ').length)
+					.reduce((total, value) => total + value )
+				};
+				return devObj;
+			})
+		};
 
-	// PortfolioItem.loadAll = pfItem => {
-	// 	pfItem.sort((a, b) => (new Date(b.lastUpdated)) - (new Date(a.lastUpdated)));  //eslint-disable-line
+	PortfolioItem.loadAll = pfItem => {
+		pfItem.sort((a, b) => (new Date(b.lastUpdated)) - (new Date(a.lastUpdated)));  //eslint-disable-line
 
-	// 	PortfolioItem.all = pfItem.map(pfItem => new PortfolioItem(pfItem));
-	// };
-
-	PortfolioItem.loadAll = function (pfItem) {
-		pfItem.sort(function (a, b) {
-			return (new Date(b.lastUpdated)) - (new Date(a.lastUpdated));
-		});
-
-		pfItem.forEach(function (item) {
-			PortfolioItem.all.push(new PortfolioItem(item));
-		});
-	}
+		PortfolioItem.all = pfItem.map(pfItem => new PortfolioItem(pfItem));
+	};
 
 	// Check and compare eTags to see if we need to load the data for the first time or not
 	PortfolioItem.eTagCheck = function () {
