@@ -1,4 +1,5 @@
 **/*/vendor/
 
-portfolioData.js
+portfolioData.json
 portfolioItem.js
+routes.js
