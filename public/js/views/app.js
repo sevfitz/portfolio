@@ -29,4 +29,9 @@ siteView.fillStats = function() {
     app.PortfolioItem.numProjs().forEach( devObj => {  // eslint-disable-line
         $('#stats').append(template(devObj));
     }); // eslint-disable-line
+
+    let githubStatsFiller = Handlebars.compile($('#github-stats-template').text()); //eslint-disable-line   
+    app.githubStats.requestStats();   // eslint-disable-line
+
+    $('#github-stats').append(githubStatsFiller(app.githubStats.data))    // eslint-disable-line
 };
