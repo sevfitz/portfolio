@@ -23,7 +23,12 @@
         <p>Dev(s): {{name}}</p>
         <p>Number of words used here to describe projects by dev(s): {{desc}}</p>
     </script>
-
+    <script id="github-stats-template" type="text/x-handlebars-template">
+        <li>Number of public repos: {{public_repos}}</li>
+        <li>Number of followers: {{followers}}</li>
+        <li>Number following: {{following}}</li>
+        <li>Last updated Github account on {{updated_at}}</li>
+    </script>
 
 </head>
 <body>
@@ -46,6 +51,8 @@
         <aside>
             <h3>Silly Stats</h3>
             <div id="stats"></div>
+            <h3>Github Stats</h3>
+            <ul id="github-stats"></ul>
         </aside>
     </main>
     <nav>
@@ -63,7 +70,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
     <script src="vendor/scripts/page.js"></script>
+
+    <!-- Model Links -->
+    <script src="js/models/githubToken.js"></script>
     <script src="js/models/portfolioItem.js"></script>
+    <script src="js/models/githubStats.js"></script>
+
+    <!-- Script Links -->
     <script src="js/views/app.js"></script>
 
     <!-- Controller Links -->
