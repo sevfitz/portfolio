@@ -15,6 +15,7 @@ siteView.initIndexPage = function() {
     });
     siteView.mobileHandler();
     siteView.fillStats();
+    siteView.fillGHStats();
 };
 
 // When the window is resized, remove the open class if we are no longer viewing as mobile
@@ -29,9 +30,12 @@ siteView.fillStats = function() {
     app.PortfolioItem.numProjs().forEach( devObj => {  // eslint-disable-line
         $('#stats').append(template(devObj));
     }); // eslint-disable-line
+};
 
+siteView.fillGHStats = () => {
     let githubStatsFiller = Handlebars.compile($('#github-stats-template').text()); //eslint-disable-line   
-    app.githubStats.requestStats();   // eslint-disable-line
 
-    $('#github-stats').append(githubStatsFiller(app.githubStats.data))    // eslint-disable-line
+    app.githubStats.requestStats( () => {  // eslint-disable-line
+        $('#github-stats').append(githubStatsFiller(app.githubStats.data));    // eslint-disable-line
+    });
 };
