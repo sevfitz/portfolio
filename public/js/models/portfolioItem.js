@@ -68,7 +68,9 @@ var app = app || {};  //eslint-disable-line
 	};
 
 	PortfolioItem.eTagVerify = function (data, message, res) {
-		if (localStorage.portfolioItems) {
+		if (!localStorage.portfolioItems) {
+			PortfolioItem.getFromDB();
+		} else {
 			let eTag = res.getResponseHeader('eTag');
 			let storedeTag = localStorage.getItem('eTag');
 			if (eTag === storedeTag) {
