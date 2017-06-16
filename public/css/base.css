@@ -6,7 +6,7 @@ html, body {
     color: purple;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: .8rem;
+    font-size: 1rem;
     background: url(../images/resizedTree.jpg) bottom left -600px no-repeat;
 }
 
@@ -25,8 +25,16 @@ a:hover, a:focus {
     color: yellowgreen;
 }
 
-a:visited {
+nav a, .menu a {
     color: indigo;
+}
+
+aside {
+    position: absolute;
+    right: 0;
+    padding: 0 2%;
+    width: 17%;
+    font-size: 0.8rem;
 }
 
 li {
