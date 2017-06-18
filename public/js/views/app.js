@@ -10,9 +10,6 @@ siteView.mobileHandler = function() {
 };
 
 siteView.initIndexPage = function() {
-    app.PortfolioItem.all.forEach(function (pfItem) { // eslint-disable-line
-        $('#portfolio').append(pfItem.toHtml())
-    });
     siteView.mobileHandler();
     siteView.fillStats();
     siteView.fillGHStats();

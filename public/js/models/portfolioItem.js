@@ -4,26 +4,10 @@ var app = app || {};  //eslint-disable-line
 
 (function (module) {                                    //eslint-disable-line
 	function PortfolioItem(portfolioItemObj) {
-		this.project = portfolioItemObj.project;
-		this.id = portfolioItemObj.id;
-		this.dev = portfolioItemObj.dev;
-		this.repoURL = portfolioItemObj.repoURL;
-		this.ghPagesURL = portfolioItemObj.ghPagesURL;
-		this.img = portfolioItemObj.img;
-		this.lastUpdated = portfolioItemObj.lastUpdated;
-		this.isTeamProj = portfolioItemObj.isTeamProj;
-		this.description = portfolioItemObj.description;
+		Object.keys(portfolioItemObj).forEach(key => this[key] = portfolioItemObj[key]);
 	}
 
 	PortfolioItem.all = [];
-
-	PortfolioItem.prototype.toHtml = function () {
-		let template = Handlebars.compile($('#template').text());  //eslint-disable-line
-
-		this.daysAgo = parseInt((new Date() - new Date(this.lastUpdated)) / 60 / 60 / 24 / 1000);
-
-		return template(this);
-	};
 
 	// Find a way to use reduce... make an array of devs/teams involved in these projects
 	PortfolioItem.allDevs = function () {
@@ -97,7 +81,7 @@ var app = app || {};  //eslint-disable-line
 			url: './data/portfolioData.json',
 			success: PortfolioItem.createItems,
 			error: PortfolioItem.runWhenFails
-		});
+		})
 	};
 
 	// make the portfolio items the first time
