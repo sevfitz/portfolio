@@ -31,71 +31,74 @@ var app = app || {};  //eslint-disable-line
 			})
 		};
 
-	PortfolioItem.loadAll = pfItem => {
-		pfItem.sort((a, b) => (new Date(b.lastUpdated)) - (new Date(a.lastUpdated)));  //eslint-disable-line
+	PortfolioItem.fetchAll = callback => {
+		PortfolioItem.loadAll = pfItem => {
+			pfItem.sort((a, b) => (new Date(b.lastUpdated)) - (new Date(a.lastUpdated)));  //eslint-disable-line
 
-		PortfolioItem.all = pfItem.map(pfItem => new PortfolioItem(pfItem));
-	};
+			PortfolioItem.all = pfItem.map(pfItem => new PortfolioItem(pfItem));
+		};
 
-	// Check and compare eTags to see if we need to load the data for the first time or not
-	PortfolioItem.eTagCheck = function () {
-		$.ajax({
-			type: 'HEAD',
-			url: './index.html',
-			success: PortfolioItem.eTagVerify,
-			error: PortfolioItem.runWhenFails
-		});
-	};
+		// Check and compare eTags to see if we need to load the data for the first time or not
+		PortfolioItem.eTagCheck = function () {
+			$.ajax({
+				type: 'HEAD',
+				url: './index.html',
+				success: PortfolioItem.eTagVerify,
+				error: PortfolioItem.runWhenFails
+			});
+		};
 
-	PortfolioItem.runWhenFails = function (err) {
-		console.log(err);
-	};
+		PortfolioItem.runWhenFails = function (err) {
+			console.log(err);
+		};
 
-	PortfolioItem.eTagVerify = function (data, message, res) {
-		if (!localStorage.portfolioItems) {
-			PortfolioItem.getFromDB();
-		} else {
-			let eTag = res.getResponseHeader('eTag');
-			let storedeTag = localStorage.getItem('eTag');
-			if (eTag === storedeTag) {
-				PortfolioItem.loadFromStorage();
-			} else {
+		PortfolioItem.eTagVerify = function (data, message, res) {
+			if (!localStorage.portfolioItems) {
 				PortfolioItem.getFromDB();
+			} else {
+				let eTag = res.getResponseHeader('eTag');
+				let storedeTag = localStorage.getItem('eTag');
+				if (eTag === storedeTag) {
+					PortfolioItem.loadFromStorage();
+				} else {
+					PortfolioItem.getFromDB();
+				}
 			}
-		}
-	};
+		};
 
-	// we've been here before, so get portfolio items from local storage
-	PortfolioItem.loadFromStorage = function () {
+		// we've been here before, so get portfolio items from local storage
+		PortfolioItem.loadFromStorage = function () {
 
-		// retrieve portfolio items from local storage
-		localStorage.getItem('portfolioItems', JSON.parse(pfData));
+			// retrieve portfolio items from local storage
+			localStorage.getItem('portfolioItems', JSON.parse(pfData));
 
-		// start up the Index page
-		siteView.initIndexPage();
-	};
+			// start up the Index page
+			siteView.initIndexPage();
+		};
 
-	PortfolioItem.getFromDB = function () {
-		$.ajax({
-			type: 'GET',
-			url: './data/portfolioData.json',
-			success: PortfolioItem.createItems,
-			error: PortfolioItem.runWhenFails
-		})
-	};
+		PortfolioItem.getFromDB = function () {
+			$.ajax({
+				type: 'GET',
+				url: './data/portfolioData.json',
+				success: PortfolioItem.createItems,
+				error: PortfolioItem.runWhenFails
+			})
+		};
 
-	// make the portfolio items the first time
-	PortfolioItem.createItems = function (pfData, message, res) {
-		PortfolioItem.loadAll(pfData);
+		// make the portfolio items the first time
+		PortfolioItem.createItems = function (pfData, message, res) {
+			PortfolioItem.loadAll(pfData);
 
-		// save the portfolio items in local storage
-		localStorage.setItem('portfolioItems', JSON.stringify(pfData));
+			// save the portfolio items in local storage
+			localStorage.setItem('portfolioItems', JSON.stringify(pfData));
 
-		// save the eTag in local storage to compage with later visits
-		localStorage.setItem('eTag', res.getResponseHeader('eTag'));
+			// save the eTag in local storage to compare with later visits
+			localStorage.setItem('eTag', res.getResponseHeader('eTag'));
 
-		// start up the Index page
-		siteView.initIndexPage();
+			// start up the Index page
+			siteView.initIndexPage();
+		};
+		callback();
 	};
 
 	module.PortfolioItem = PortfolioItem;

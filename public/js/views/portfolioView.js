@@ -13,8 +13,12 @@ var app = app || {};  // eslint-disable-line
     }
 
     portfolioView.index = function (pfItems) {
-        pfItems.forEach(function (i) { // eslint-disable-line
-            $('#portfolio').append(render(i))
+        $('main > section').hide();
+        $('#portfolio').show();
+
+        pfItems.forEach(function (item) { // eslint-disable-line
+            $('#portfolio').append(render(item))
+            console.log(render(item));
         });
     };
 
