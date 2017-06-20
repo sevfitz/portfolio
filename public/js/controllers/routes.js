@@ -2,9 +2,9 @@
 
 var app = app || {};
 
-page('/', app.homeController.init);
-page('/about', app.aboutController.init);
-page('/siteinfo', app.siteinfoController.init);
+page('/', siteView.index);
+page('/about', app.aboutController.index);
+page('/siteinfo', app.siteinfoController.index);
 page('/portfolio', app.portfolioController.loadAll, app.portfolioController.index);
 
 page();

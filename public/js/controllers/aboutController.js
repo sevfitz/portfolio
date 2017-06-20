@@ -5,7 +5,7 @@ var app = app || {};  //eslint-disable-line
 (function(module) {
     const aboutController = {};
 
-    aboutController.init = () => {
+    aboutController.index = () => {
         $( 'main > section' ).hide();
         $( '#about-me' ).show();
     }

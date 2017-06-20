@@ -5,7 +5,7 @@ var app = app || {};  //eslint-disable-line
 (function(module) {
     const siteinfoController = {};
 
-    siteinfoController.init = () => {
+    siteinfoController.index = () => {
         $( 'main > section' ).hide();
         $( '#about-site' ).show();
     }

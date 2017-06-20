@@ -15,6 +15,7 @@ var app = app || {};  //eslint-disable-line
 
         if (app.PortfolioItem.all.length) {
             ctx.pfItems = app.PortfolioItem.all;
+            next();
         } else {
             app.PortfolioItem.fetchAll(pfData);
         }
